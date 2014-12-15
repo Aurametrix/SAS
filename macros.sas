@@ -21,3 +21,19 @@
           %testa;
           
           %put >> a was 5 and now a=&a;
+
+   %* Syntax of labels for visualization
+   %* LABEL variable-1=label-1...<variable-n=label-n>;
+   %* LABEL variable-1=' ' ...<variable-n=' '>;
+
+label compound=Type of Drug;
+label date="Today's Date";
+label n='Mark''s Experiment Number';
+label score1="Grade on April 1 Test"  
+      score2="Grade on May 1 Test";
+
+%*  Removing a label
+data rtest;
+   set rtest;
+   label x=' ';
+run;

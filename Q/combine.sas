@@ -19,3 +19,15 @@ data both; merge dataseta(in=a)
  by ordernumber;
  if a and b;
 run; 
+
+
+/* SQL */
+/ *
+Proc SQL;
+create table result as
+select a.*, b.*
+from a, b
+where a.ordernumber=b.ordernumber;
+quit; 
+
+*/

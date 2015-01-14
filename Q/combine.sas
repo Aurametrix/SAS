@@ -31,3 +31,18 @@ where a.ordernumber=b.ordernumber;
 quit; 
 
 */
+
+/* */
+
+/* Proc Format */
+data b; set b;
+ start = ordernumber;
+ label = '*';
+ fmtname = '$key';
+run;
+proc sort data=b nodupkey; by start;
+run;
+proc format cntlin=b; run;
+data all; set a;
+ if put(ordernumber,$key.) = '*';
+run; 

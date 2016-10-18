@@ -1,0 +1,25 @@
+ USE ecgdata.ecg_squared;
+ READ all var {squared} into ecg;
+ *Define the matrix and initialize all
+ the elements to zero;
+ filt=j(nrow(ecg),1,0);
+ *Implement the moving window integration;
+ DO i=1 to 32;
+ sum=0;
+ DO j=i to 1 by -1;
+ sum=sum+ecg[j];
+END;
+ filt[i]=sum/32;
+ END;
+ DO i=33 to nrow(ecg);
+ sum=0;
+ DO j=i to i-32 by -1;
+ sum=sum+ecg[j];
+ END;
+ filt[i]=sum/32;
+ END;
+ varnames = {"integral"};
+ CREATE integral FROM filt [colname=varnames];
+ APPEND from filt;
+ CLOSE integral;
+QUIT;

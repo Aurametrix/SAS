@@ -1,0 +1,22 @@
+A = "Hello, World";
+Show( A );
+A = "Hello, World";
+
+Graph Box( title("My Line Graph"),
+Frame Size( 300, 500 ),
+Marker( Marker State( 3 ), [11 44 77], [75 25 50] );
+Pen Color( "Blue" );
+Line( [10 30 70], [88 22 44] ));
+
+Open( "$SAMPLE_DATA/Big Class.JMP" );
+Bivariate( Y( :weight ), X( :height ) );
+
+// Expression 1
+sum=0; for(i=1,i<=10,i++,sum+=i;show(i,sum))
+ 
+// Expression 2
+Sum = 0;
+For( i = 1, i <= 10, i++,
+Sum += i;
+Show( i, Sum );
+);
